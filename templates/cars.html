@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Cars for Sale{% endblock %}
+
+{% block content %}
+<h2 class="avai_cars">Available Cars</h2>
+
+<div class="image-container">
+  {% for car in cars %}
+    <div>
+      <p>
+        <img src="{{ url_for('static', filename=car.image) }}" alt="Car image" style="width: 300px; height: 220px;"><br>
+        <strong>{{ car.description }}</strong><br>
+        <span>{{ car.price }}</span><br>
+        <a href="/contact">Contact Seller</a>
+      </p> 
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+
+
+

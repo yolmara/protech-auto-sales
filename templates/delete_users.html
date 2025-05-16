@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Delete Users{% endblock %}
+
+{% block content %}
+
+<div class="delete-users-container">
+    <h2>Delete Users</h2>
+    
+    <form method="POST">
+        {% for user in users %}
+          <input type="checkbox" name="user_ids" value="{{ user.id }}">
+          {{ user.username }}<br>
+        {% endfor %}
+        <input type="submit" value="Delete Selected Users">
+      </form>
+</div>
+{% endblock %}

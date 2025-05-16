@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Delete Cars{% endblock %}
+
+{% block content %}
+<h2 class="delete-heading">Available Cars</h2>
+
+<div class="delete-container">
+  <form action="{{ url_for('delete_cars') }}" method="POST">
+    <div class="car-list">
+      {% for car in cars %}
+        <div class="car-item">
+          <input type="checkbox" name="car_ids" value="{{ car.id }}">
+          <img src="{{ url_for('static', filename=car.image) }}" alt="Car image">
+          <p><strong>{{ car.description }}</strong></p>
+          <p>{{ car.price }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <button type="submit" class="delete-btn">Delete Selected Cars</button>
+  </form>
+
+  <form action="{{ url_for('logout') }}" method="POST">
+    <button type="submit" class="logout-btn">Logout</button>
+  </form>
+</div>
+
+{% endblock %}
