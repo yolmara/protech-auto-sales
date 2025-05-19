@@ -15,6 +15,51 @@
 }
 
 
+/* In style.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-links li a {
+    color: rgb(180, 99, 99);
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgb(124, 144, 180);
+    border-radius: 7px;
+  }
+
+  .nav-links li a:hover {
+    border: rgb(124, 144, 180);
+  }
+  
+  /* Responsive tweak for smaller screens */
+  @media (max-width: 600px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+    }
+  }
+  
+
 nav {
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
@@ -93,14 +138,23 @@ ul li a:hover {
     font-size: 1rem;
 }
 
-/* Add media queries to adjust the layout on smaller screens*/
+/* Add media queries to adjust the homepage layout on smaller screens*/
 @media (max-width: 768px){
-    .container {
-        flex-direction: column;
-    }
     .main-content {
-        flex-basis: 100%;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
     }
+    
+    .paragraph {
+        line-height: 1.6;
+        font-size: 1.1rem;
+        text-align: justify;
+        margin-bottom: 15px;
+    }
+    
 }
 
 body {
