@@ -46,18 +46,36 @@
   }
   
   /* Responsive tweak for smaller screens */
-  @media (max-width: 600px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
+  @media screen and (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px;
+        align-items: center;
+        justify-content: space-between;
     }
-  
-    .nav-links {
-      flex-direction: column;
-      width: 100%;
-      gap: 10px;
+
+    .ptaclogo img {
+        height: 60px;
+        margin-bottom: 0;
     }
-  }
+
+    nav ul {
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        gap: 10px; /* space between nav items */
+    }
+
+    nav ul li a {
+        margin: 0;
+        font-size: 1rem;
+        text-align: center;
+    }
+}
   
 
 nav {
@@ -101,7 +119,9 @@ ul li a:hover {
 
 .container {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+
 }
 
 .main-content {
@@ -120,6 +140,7 @@ ul li a:hover {
     text-align: center;
     border: 1px solid rgb(174, 190, 219);
     border-radius: 6px;
+    width: 25%;
 }
 
 .sidebar a{
@@ -371,39 +392,15 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li a {
-        margin: 10px 0;
-        font-size: 1.2rem;
-    }
-
     .ptaclogo img {
         height: 60px;
         margin-bottom: 10px;
-    }
-
-    .container {
-        flex-direction: column;
     }
 
     .main-content, .sidebar {
         flex-basis: 100%;
         margin: 0;
         padding: 15px;
-    }
-
-    .sidebar {
-        margin-top: 10px;
     }
 
     .paragraph {
@@ -486,7 +483,7 @@ footer {
     transition: 0.3s;
 }
 
-/* Mobile responsiveness */
+/* Mobile responsiveness for car lists */
 @media (max-width: 768px) {
     .car-list {
         flex-direction: column;
@@ -596,4 +593,28 @@ footer {
 
 .delete-users-container input[type="submit"]:hover {
     background-color: #00384e;
+}
+
+/*mobile media query for the homepage*/
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .paragraph {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-top: 20px;
+    }
 }

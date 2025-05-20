@@ -91,7 +91,7 @@ def upload():
         return redirect(url_for('admin_login'))
         
     if request.method == 'POST':
-        file = request.files['image']
+        image_url = request.form['image'] # This is already a hosted URL from Uploadcare
         description = request.form['description']
         price = request.form['price']
 
@@ -101,7 +101,7 @@ def upload():
             file.save(filepath)
 
             # Save to database
-            new_car = Car(image=f'uploads/{filename}', description=description, price=price)
+            new_car = Car(image=image_url, description=description, price=price)
             db.session.add(new_car)
             db.session.commit()
 

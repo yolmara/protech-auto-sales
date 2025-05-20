@@ -3,12 +3,17 @@
 
 {% block content %}
 <div class="upload-input">
+    <!--Uploadcare script-->
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
     <h2>Upload New Car Image</h2>
 
     <!-- Upload Form -->
     <form method="POST" enctype="multipart/form-data">
         <label for="image">Image:</label><br/>
-        <input id="image" type="file" name="image" accept="image/*" required><br/>
+        <!-- Uploadcare widget input -->
+        <input id="image" type="hidden" role="uploadcare-uploader" name="image"
+         data-public-key="8e2c592094d3e36cb024" accept="image/*" data-images-only
+         data-preview-step required><br/>
 
         <label for="description">Description:</label><br/>
         <input id="description" type="text" name="description" required><br/>
