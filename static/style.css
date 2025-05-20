@@ -4,17 +4,6 @@
     box-sizing: border-box;
 }
 
-@media (max-width: 480px) {
-    .credentials {
-        padding: 15px;
-    }
-
-    .credentials input, .credentials button {
-        font-size: 14px;
-    }
-}
-
-
 /* In style.css */
 .navbar {
     display: flex;
@@ -23,14 +12,6 @@
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    padding: 0;
-    margin: 0;
   }
   
   .nav-links li a {
@@ -44,40 +25,6 @@
   .nav-links li a:hover {
     border: rgb(124, 144, 180);
   }
-  
-  /* Responsive tweak for navbar for smaller screens */
-  @media screen and (max-width: 768px) {
-    nav {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        height: auto;
-        padding: 10px;
-    }
-
-    .ptaclogo img {
-        flex: 1;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        flex: 2;
-        justify-content: flex-end;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        margin: 0 10px;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-        text-align: center;
-        text-decoration: none;
-    }
-}
   
 
 nav {
@@ -120,16 +67,30 @@ ul li a:hover {
 }
 
 .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
-
-}
-
-.main-content {
-    flex-basis: 70%; /*Adjust the width of the content area*/
-    padding: 20px;
-}
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .main-content {
+    flex: 2;
+    min-width: 300px;
+  }
+  
+  .sidebar {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .paragraph {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2em;
+  }
 
 .sidebar{
     flex-basis: 20%;/* Adjust the width of the sidebar*/
@@ -146,8 +107,7 @@ ul li a:hover {
 }
 
 .sidebar a{
-    display:list-item;
-    margin-top: 7px;
+    display: inline-block;
 }
 
 .sidebar ul {
@@ -168,7 +128,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
-    flex-direction: column;
     min-height: 100vh;
     margin: 0;
     padding-top: 80px;
@@ -239,19 +198,6 @@ footer {
 
 .image-container a:hover {
     background-color: #0c6bd0;
-}
-
-/* Responsive Fix */
-@media (min-width: 600px) {
-    .image-container div {
-        width: calc(50% - 40px);
-    }
-}
-
-@media (min-width: 900px) {
-    .image-container div {
-        width: calc(33.33% - 40px);
-    }
 }
 
 .credentials {
@@ -444,19 +390,9 @@ footer {
     transition: 0.3s;
 }
 
-/* Mobile responsiveness for car lists */
-@media (max-width: 768px) {
-    .car-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .car-item {
-        width: 90%;
-    }
-}
-
 .upload-input {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
     width: 400px;
     max-width: 90%;
     margin: 100px auto;
@@ -464,19 +400,11 @@ footer {
     background-color: rgba(0, 0, 0, 0.55);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    color: white;
     text-align: center;
 }
 
 .upload-input h2 {
     margin-bottom: 20px;
-}
-
-.upload-input label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: bold;
 }
 
 .upload-input input[type="text"],
@@ -504,14 +432,6 @@ footer {
     background-color: rgb(60, 146, 113);
     transition: 0.3s;
 }
-
-@media (max-width: 500px) {
-    .delete-users-container {
-        width: 95%;
-        padding: 15px;
-    }
-}
-
 
 .delete-users-container {
     margin: 40px auto;
@@ -556,28 +476,110 @@ footer {
     background-color: #00384e;
 }
 
-/*mobile media query for the homepage*/
+/*mobile media query for all*/
 @media screen and (max-width: 768px) {
+    
+    nav h1 {
+        font-size: 18px;
+      }
+    
+    nav a {
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .ptaclogo img {
+        flex: 1;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        flex: 2;
+        justify-content: flex-end;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        text-align: center;
+        text-decoration: none;
+    }
+
     .container {
         flex-direction: column;
         padding: 10px;
       }
-      
-      .main-content {
+    
+      .main-content, .sidebar {
         width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
       }
-      
+    
       .paragraph {
         font-size: 1rem;
         line-height: 1.6;
-        text-align: justify;
+      }
+    
+    p {
+        padding: 0;
+        margin: 10px 0;
       }
 
-      .sidebar {
+    .sidebar {
         width: 100%;
         margin-top: 20px;
       }
-      
+
+    .car-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .car-item {
+        width: 90%;
+    }
+
+@media (max-width: 480px) {
+    .credentials {
+        padding: 15px;
+    }
+
+    .credentials input, .credentials button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .delete-users-container {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+/* Responsive Fix */
+@media (min-width: 600px) {
+    .image-container div {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (min-width: 900px) {
+    .image-container div {
+        width: calc(33.33% - 40px);
+    }
 }
