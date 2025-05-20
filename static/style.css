@@ -53,24 +53,19 @@
         flex-wrap: wrap;
         height: auto;
         padding: 10px;
-        align-items: center;
-        justify-content: space-between;
     }
 
     .ptaclogo img {
-        height: 50px;
-        margin: 0;
+        flex: 1;
     }
 
     nav ul {
         display: flex;
         flex-direction: row;
+        flex: 2;
+        justify-content: flex-end;
         padding: 0;
         margin: 0;
-        list-style: none;
-        align-items: center;
-        display: flex;
-        gap: 4px; /* space between nav items */
     }
 
     nav ul li {
@@ -101,7 +96,7 @@ nav {
 }
 
 .ptaclogo img {
-    height: 80px;
+    height: 60px;
     object-fit: contain;
 }
 
@@ -164,25 +159,6 @@ ul li a:hover {
 .sidebar li{
     padding: 6px 0;
     font-size: 1rem;
-}
-
-/* Add media queries to adjust the homepage layout on smaller screens*/
-@media (max-width: 768px){
-    .main-content {
-        width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-    
-    .paragraph {
-        line-height: 1.6;
-        font-size: 1.1rem;
-        text-align: justify;
-        margin-bottom: 15px;
-    }
-    
 }
 
 body {
@@ -398,28 +374,6 @@ footer {
     border-bottom: 1px solid rgb(10, 10, 46)
 }
 
-@media screen and (max-width: 768px) {
-    .ptaclogo img {
-        height: 60px;
-        margin-bottom: 10px;
-    }
-
-    .main-content, .sidebar {
-        flex-basis: 100%;
-        margin: 0;
-        padding: 15px;
-    }
-
-    .paragraph {
-        font-size: 1rem;
-    }
-
-    .ptacfooter footer {
-        text-align: center;
-        padding: 10px 0;
-    }
-}
-
 .delete-container {
     max-width: 1000px;
     margin: 100px auto 40px auto;
@@ -607,21 +561,23 @@ footer {
     .container {
         flex-direction: column;
         padding: 10px;
-    }
-
-    .main-content {
+      }
+      
+      .main-content {
         width: 100%;
-        padding: 0 10px;
-    }
-
-    .paragraph {
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      
+      .paragraph {
         font-size: 1rem;
         line-height: 1.6;
         text-align: justify;
-    }
+      }
 
-    .sidebar {
+      .sidebar {
         width: 100%;
         margin-top: 20px;
-    }
+      }
+      
 }
