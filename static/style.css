@@ -93,21 +93,15 @@ ul li a:hover {
   }
 
 .sidebar{
-    flex-basis: 20%;/* Adjust the width of the sidebar*/
     padding: 15px; 
     background-color:rgba(0, 0, 0, 0.88); /* Optional*/
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+    margin: auto;
     text-align: center;
     border: 1px solid rgb(174, 190, 219);
     border-radius: 6px;
-    width: 25%;
-}
-
-.sidebar a{
-    display: inline-block;
+    max-width: 300px; /* limits the width */
+    min-width: 200px;
 }
 
 .sidebar ul {
@@ -119,6 +113,10 @@ ul li a:hover {
 .sidebar li{
     padding: 6px 0;
     font-size: 1rem;
+}
+
+.sidebar li a {
+    color: lightblue;
 }
 
 body {
@@ -508,7 +506,7 @@ footer {
         flex: 2;
         justify-content: flex-end;
         padding: 0;
-        margin: 0;
+        margin-right: 10px;
     }
 
     nav ul li {
