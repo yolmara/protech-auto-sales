@@ -11,7 +11,8 @@ app = Flask(__name__)
 app.secret_key = 'coder.03'
 
 # Configure database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cars.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://protech_db_user:cXBwkpcCLxH1mmlS0dgpHYndMoF1IfZS@dpg-d0mpoummcj7s739he640-a/protech_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Upload Settings
