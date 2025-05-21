@@ -11,7 +11,6 @@ app = Flask(__name__)
 app.secret_key = 'coder.03'
 
 # Configure database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://protech_db_user:cXBwkpcCLxH1mmlS0dgpHYndMoF1IfZS@dpg-d0mpoummcj7s739he640-a/protech_db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -37,7 +36,7 @@ class User(db.Model):
 
 class Car(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    image = db.Column(db.String(100), nullable=False)
+    image = db.Column(db.String(500), nullable=False)
     description = db.Column(db.String(200), nullable=False)
     price = db.Column(db.String(50), nullable=False)
 
@@ -222,6 +221,15 @@ def delete_users():
 #        flash('Selected Cars Deleted Successfully')
 #        return redirect(url_for('show_cars'))
 #    return redirect(url_for('delete_cars'))
+
+@app.route('/test-db')
+def test_db():
+    try:
+        # Try querying the database
+        users = User.query.all()
+        return f"✅ Connected to DB. Users found: {len(users)}"
+    except Exception as e:
+        return f"❌ Database Error: {str(e)}"
 
 
 if __name__ == '__main__':
