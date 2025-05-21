@@ -89,18 +89,13 @@ def upload():
     if 'user_id' not in session:
         flash('You must be logged in to view the upload page')
         return redirect(url_for('admin_login'))
-        
+
     if request.method == 'POST':
-        image_url = request.form['image'] # This is already a hosted URL from Uploadcare
+        image_url = request.form['image']  # URL from Uploadcare
         description = request.form['description']
         price = request.form['price']
 
-        if file and allowed_file(file.filename):
-            filename = f"{uuid.uuid4().hex}_{secure_filename(file.filename)}"
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(filepath)
-
-            # Save to database
+        if image_url and description and price:
             new_car = Car(image=image_url, description=description, price=price)
             db.session.add(new_car)
             db.session.commit()
@@ -108,9 +103,10 @@ def upload():
             flash('🚗 Car added successfully')
             return redirect(url_for('show_cars'))
 
-        flash('❌ Invalid file type or missing fields.')
+        flash('❌ Missing fields.')
 
     return render_template('upload.html')
+
 
 # Admin Registration
 SECRET_KEY = 'protech_25'
