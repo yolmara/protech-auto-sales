@@ -501,23 +501,19 @@ footer {
     }
 
     nav ul {
-        display: flex;
-        flex-direction: row;
-        flex: 2;
-        justify-content: flex-end;
-        padding: 0;
-        margin-right: 20px;
-    }
+        padding: 0 10px; /* Reduce horizontal padding */
+        justify-content: space-between; /* Or use center if needed */
+      }
 
     nav ul li {
-        margin: 0 10px;
-    }
+        margin: 0 5px; /* Tighter spacing between links */
+        font-size: 14px; /* Optional: slightly smaller text */
+      }
 
     nav ul li a {
-        font-size: 1rem;
-        text-align: center;
-        text-decoration: none;
-    }
+        padding: 5px 8px; /* Reduce padding inside links */
+        white-space: nowrap; /* Prevent link text from wrapping */
+      }
 
     .container {
         flex-direction: column;
