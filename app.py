@@ -231,6 +231,14 @@ def test_db():
     except Exception as e:
         return f"❌ Database Error: {str(e)}"
 
+@app.route('/init-db')
+def init_db():
+    try:
+        db.create_all()
+        return '✅ Database initialized!'
+    except Exception as e:
+        return f'❌ Error: {e}'
+
 
 if __name__ == '__main__':
 
