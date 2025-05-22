@@ -31,7 +31,7 @@ db = SQLAlchemy(app)
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(30), nullable=False) #m.facebook.com/profile.php?id=330743793448238
+    password = db.Column(db.String(200), nullable=False) #m.facebook.com/profile.php?id=330743793448238
 
 
 class Car(db.Model):
@@ -222,14 +222,12 @@ def delete_users():
 #        return redirect(url_for('show_cars'))
 #    return redirect(url_for('delete_cars'))
 
-@app.route('/test-db')
-def test_db():
-    try:
-        # Try querying the database
-        users = User.query.all()
-        return f"✅ Connected to DB. Users found: {len(users)}"
-    except Exception as e:
-        return f"❌ Database Error: {str(e)}"
+@app.route('/reset-db')
+def reset_db():
+    db.drop_all()
+    db.create_all()
+    return "✅ Database reset"
+
 
 @app.route('/init-db')
 def init_db():
